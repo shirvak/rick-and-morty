@@ -1,0 +1,21 @@
+.form-control {
+    margin: 0.5rem 0;
+    display: flex;
+    flex-direction: row;
+    /*background: #4c4b4b;*/
+}
+.input{
+    background: #37393c;
+    color: #dfdfdf;
+    border-radius: 7px;
+    width: 600px;
+    height: 35px;
+    box-shadow: #202124;
+    border:none;
+}
+.input:focus{
+    /*border-style: dashed;*/
+    /*border-color: #dfdfdf;*/
+}
+
+

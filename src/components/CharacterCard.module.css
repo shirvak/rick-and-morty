@@ -1,0 +1,38 @@
+.card {
+    display: flex;
+    flex-direction: row;
+    width: 50rem;
+    max-width: 90%;
+    margin: 3rem auto;
+    padding: 2rem;
+    box-shadow: 0 2px 12px rgba(0, 0, 0, 0.2);
+    border-radius: 10px;
+}
+.photo{
+    border-radius: 15px;
+    width: 200px;
+    border: 1px solid #16bdca;
+    padding: 5px;
+}
+.title{
+    flex-direction: column;
+    padding: 5px;
+    font-size: 25px;
+    vertical-align: baseline;
+    position: relative;
+    left: 20px;
+    top: -50px;
+    color: #dfdfdf;
+    word-spacing: 3px;
+    font-family: Bevan;
+}
+.text{
+    font-size: 25px;
+    color: #dfdfdf;
+    letter-spacing: 1px;
+    word-spacing: 3px;
+}
+.details{
+    display: flex;
+    flex-direction: column;
+}
