@@ -17,22 +17,26 @@
 .title{
     flex-direction: column;
     padding: 5px;
-    font-size: 25px;
-    vertical-align: baseline;
+    font-size: 40px;
     position: relative;
-    left: 20px;
-    top: -50px;
+    /*left: 20px;*/
+    /*top: -100px;*/
     color: #dfdfdf;
     word-spacing: 3px;
     font-family: Bevan;
+    display: flex;
 }
 .text{
-    font-size: 25px;
+    font-size: 15px;
     color: #dfdfdf;
     letter-spacing: 1px;
-    word-spacing: 3px;
+    word-spacing: 1px;
+    font-family: inherit;
 }
 .details{
     display: flex;
     flex-direction: column;
+    color: #dfdfdf;
+    padding-left: 10px;
+    font-family: inherit;
 }

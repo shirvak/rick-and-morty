@@ -1,13 +1,12 @@
 import classes from "./CharacterCard.module.css";
 import ErrorCharacter from "./icons/errorCharacter";
 import UnknownCharacter from "./icons/unknownCharacter";
-import Loading from "./icons/Loading";
 
 const CharacterCard = ({ character, errorMessage, isLoading }) => {
   let image, title, text;
 
   if (isLoading) {
-    image = <Loading />;
+    image = "Loading";
     text = [""];
   } else if (errorMessage) {
     image = <ErrorCharacter />;
@@ -31,12 +30,12 @@ const CharacterCard = ({ character, errorMessage, isLoading }) => {
   return (
     <div className={classes.card}>
       <div>{image}</div>
-      <div className={classes.title}>
-        {title && <h1>{title}</h1>}
+      <div >
+        {title && <h1 className={classes.title}>{title}</h1>}
         {text && (
-          <div className={classes.details}>
+          <div className={classes.text}>
             {text.map((line, key) => (
-              <span className={classes.text} key={key}>
+              <span className={classes.details} key={key}>
                 {line}
               </span>
             ))}
