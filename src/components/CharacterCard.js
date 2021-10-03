@@ -29,13 +29,13 @@ const CharacterCard = ({ character, errorMessage, isLoading }) => {
 
   return (
     <div className={classes.card}>
-      <div>{image}</div>
-      <div >
+      <div className={classes.photoWrapper}>{image}</div>
+      <div className={classes.details}>
         {title && <h1 className={classes.title}>{title}</h1>}
         {text && (
           <div className={classes.text}>
             {text.map((line, key) => (
-              <span className={classes.details} key={key}>
+              <span key={key}>
                 {line}
               </span>
             ))}
