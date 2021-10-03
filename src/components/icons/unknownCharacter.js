@@ -1,4 +1,4 @@
-const unknownCharacter = ({ type }) => {
+const unknownCharacter = () => {
   return (
     <svg
       stroke="currentColor"

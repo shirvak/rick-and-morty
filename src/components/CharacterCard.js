@@ -3,45 +3,43 @@ import ErrorCharacter from "./icons/errorCharacter";
 import UnknownCharacter from "./icons/unknownCharacter";
 
 const CharacterCard = ({ character, errorMessage, isLoading }) => {
-  let image, title, text;
+  const title = character?.name ?? "???";
 
-  if (isLoading) {
-    image = "Loading";
-    text = [""];
-  } else if (errorMessage) {
-    image = <ErrorCharacter />;
-    title = "XXX";
-    text = [errorMessage];
-  } else if (character) {
-    title = character.name;
-    image = <img className={classes.photo} src={character.image} />;
-    text = [
-      `#${character.id}, ${character.status}, ${character.species}, ${character.gender}.
+  const image = character ? (
+    <img className={classes.photo} src={character.image} />
+  ) : (
+    <UnknownCharacter />
+  );
+
+  const text = character
+    ? [
+        `#${character.id}, ${character.status}, ${character.species}, ${character.gender}.
       `,
-      `origin: ${character.origin.name}
+        `origin: ${character.origin.name}
       `,
-      `location: ${character.location.name}`,
-    ];
-  } else {
-    image = <UnknownCharacter />;
-    title = "???";
-  }
+        `location: ${character.location.name}`,
+      ]
+    : [];
 
   return (
     <div className={classes.card}>
-      <div className={classes.photoWrapper}>{image}</div>
-      <div className={classes.details}>
-        {title && <h1 className={classes.title}>{title}</h1>}
-        {text && (
-          <div className={classes.text}>
-            {text.map((line, key) => (
-              <span key={key}>
-                {line}
-              </span>
-            ))}
+      {isLoading ? (
+        "Loading"
+      ) : (
+        <>
+          <div className={classes.photoWrapper}>
+            {errorMessage ? <ErrorCharacter /> : image}
           </div>
-        )}
-      </div>
+          <div className={classes.details}>
+            <h1 className={classes.title}>{errorMessage ? "XXX" : title}</h1>
+            <div className={classes.text}>
+              {text.map((line, key) => (
+                <span key={key}>{line}</span>
+              ))}
+            </div>
+          </div>
+        </>
+      )}
     </div>
   );
 };
