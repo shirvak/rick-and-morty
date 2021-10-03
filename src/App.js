@@ -1,4 +1,4 @@
-import React from "react";
+import axios from "axios";
 import CharacterInput from "./components/CharacterInput";
 import CharacterCard from "./components/CharacterCard";
 import classes from "./App.module.css";
@@ -12,20 +12,17 @@ function App() {
   const fetchHandler = async (id) => {
     try {
       setIsLoading(true);
-      const response = await fetch(
+      const response = await axios.get(
         `https://rickandmortyapi.com/api/character/${id}`
       );
-
-      const characterData = await response.json();
-      if (!response.ok) {
-        throw new Error(characterData.error);
-      }
-
+      console.log("response:", response);
+      const characterData = await response.data;
       setCharacter(characterData);
       setErrorMessage(undefined);
-      setIsLoading(false);
     } catch (error) {
       setErrorMessage(error.message);
+      setCharacter(undefined);
+    } finally {
       setIsLoading(false);
     }
   };
